@@ -58,6 +58,7 @@ int main(){
             break;
             default:
             cout << "Invalid Option, please choose a valid option..."<<endl;
+            continue;
             break;        
         }
 
@@ -85,7 +86,8 @@ void findFileWithInode(){
     char cmd[255];
     strcpy(cmd,"find -inum ");
     strcat(cmd,x);
-    system(cmd);
+    system(cmd); 
+    
 }
 
 void findINodeNumber(){
@@ -138,9 +140,9 @@ void makeImage(){
 
     char pass[60];
 
-    cout << "Please enter your sudo password: ";
+    // cout << "Please enter your sudo password: ";
 
-    cin >> pass;
+    // cin >> pass;
 
 
 
@@ -154,16 +156,16 @@ void makeImage(){
     strcat(cmd,dPath);
     strcat(cmd," bs=1k conv=noerror");
 
-    strcpy(temp,"echo ");
-    strcat(temp,pass);
-    strcat(temp," | sudo -S ");
+    strcpy(temp,"sudo -S ");
+    // strcat(temp,pass);
+    // strcat(temp," | sudo -S ");
 
     strcpy(sudo,temp);
     strcat(sudo,cmd);
     system(sudo);
 
 
-    system("clear");
+    // system("clear");
 
     cout << "image created successfully..." << endl;
 
